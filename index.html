@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale= 1">
   <title>Business Agility Organization</title>
   <!--IMPORTANT jQuery must come first before bootstrap-->
-
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/webcomponents-bundle.js"></script>
 <!--jquery-->
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
 
@@ -27,6 +27,9 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+  
 
 <!--fedex web components-->   
 <script src="faar-search.js"></script>
@@ -380,10 +383,10 @@ Note: yoou need height on wrapper to display schedule people right-->
 	{
 	
 	.wrapper 			{
-						gap:20px;
+						gap:30px;
 						max-width: 1200px;
 						grid-template-columns: repeat(8,1fr);  
-						grid-template-rows:  105px 70px 100px 100px 100px 100px 100px 100px 100px 100px;
+						grid-template-rows:  105px 45px 100px 100px 150px 150px 150px 150px 150px 150px;
 						margin-bottom:200px;
 						/*background-color: orange;*/ 
 						}
@@ -407,7 +410,24 @@ Note: yoou need height on wrapper to display schedule people right-->
 						
 	fx-dropdownmenu		{
 						font-size: var(--desktopmenufont);
-						}		
+						}
+
+	.narrativetitle		{
+						font-size:18px;
+						font-weight:bold;
+						text-align:center;
+						color:var(--fedexdarkgray);
+						margin-top:10px;
+						}
+	
+	.narrativeslot		{	
+						position:absolute;
+						top:160px;
+						text-align:center;
+						font-size:16px;
+						margin-left:10px;
+						margin-right:10px;
+						}
 	
 	/*menu items*/
 	#home				{
@@ -446,6 +466,8 @@ Note: yoou need height on wrapper to display schedule people right-->
 						grid-column : 1/span 5;
 						grid-row : 3 ;
 						background-color:  var(--fedexpurple);
+						color: white;
+						padding-right:10px;
 						/*box-shadow: 3px 3px 3px 3px #d9d9d9;*/ 
 						}
 	
@@ -454,6 +476,8 @@ Note: yoou need height on wrapper to display schedule people right-->
 						grid-column: 1/span 5;
 						grid-row : 4;
 						background-color:  var(--fedexpurple);
+						color:white;
+						padding-right:10px;
 						/*box-shadow: 3px 3px 3px 3px #d9d9d9;*/ 
 						/*border:thin silver solid;*/
 						}
@@ -469,77 +493,85 @@ Note: yoou need height on wrapper to display schedule people right-->
 	.standards			{
 						grid-column: 1/span 2;
 						grid-row : 5/span 2;
-						border:thin silver solid;  
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						   
 						}
 	
 	.ceremony 			{
 						grid-column : 3/span 2;
 						grid-row : 5/span 2;
-						border:thin silver solid;  
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/						 
 						}
 	
 	.templates 
 						{
 						grid-column: 5 /span 2;
 						grid-row : 5/span 2;
-						border:thin silver solid;  
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						  
 						}
 						
 	.tools 
 						{
 						grid-column : 7 /span 2;
 						grid-row : 5/ span 3;
-						border:thin silver solid; 
+						box-shadow: 3px 3px 5px 3px #d9d9d9;
 						}
 						
 	.links 
 						{
 						grid-column : 7 / span 2;
 						grid-row : 8/ span 3;
-						border:thin silver solid;
+						box-shadow: 3px 3px 5px 3px #d9d9d9;
+						text-align: left;
+						 
 						}
 						
 	.best 
 						{
 						grid-column : 1 / span 2; ;
 						grid-row : 7/span 2;
-						border:thin silver solid; 
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
-	
- 
 	.improve 			
 						{
 						grid-column : 3 / span 2;
 						grid-row : 7/span 2;
-						border:thin silver solid; 
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
 	
 	.learn
 						{
 						grid-column: 5 / span 2;
 						grid-row : 7/span 2;
-						border:thin silver solid;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
 	
 	.structure 
 						{
 						grid-column : 1 /span 2;
 						grid-row : 9/span 2;
-						border:thin silver solid; 
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
 	
 	.metrics 
 						{
 						grid-column: 3 /span 2;
 						grid-row : 9/span 2;
-						border:thin silver solid; 
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
 
 	.faq 
 						{
 						grid-column: 5 /span 2;
 						grid-row : 9/span 2;
-						border:thin silver solid; 
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
 						}
 						
 /*fonts*/
@@ -567,43 +599,9 @@ function myFunction() {
 }
 </script>
 
-<script>
-function startTime() {
-  offset = 8;
-  var today = new Date();
-  var h = today.getUTCHours();
-  var m = today.getUTCMinutes();
-  var s = today.getUTCSeconds();
-  h = h + offset;
-  if (h > 24) {
-    h = h - 24;
-  }
-  if (h < 0) {
-    h = h + 24;
-  }
-  h = checkTime(h);
-  m = checkTime(m);
-  s = checkTime(s);
-  document.getElementById('clock').innerHTML = h + ":" + m + ":" + s;
-  var t = setTimeout(function() {
-    startTime()
-  }, 500);
-}
-
-function checkTime(i) {
-  if (i < 10) {
-    i = "0" + i
-  };
-  return i;
-}
-
-startTime()
-</script>
-
 </head>
 
 	<body>
-
 		<p id="demo"></p>
  
 		<div class = "wrapper" >
@@ -644,18 +642,31 @@ startTime()
 	<div class = "vision">
 		<fx-cardnarrative>
 			<div slot = "imageslot">
-				<img src = "corp.jpg" style = "height:100px;margin: 0%;" />
-				<span style = "position:absolute; top:5px;left:180px;font-size:18px;color:white;">BAO Vision Statement</span>
+				<img src = "blondewoman.jpg" style = "height:100px;margin: 0%;" />
+			</div>
+				
+			<div   slot = "narrativetitle" style = "position:absolute;top:10px;left:180px;font-size:18px;">
+				<span>BAO Vision Statement</span>
+			</div>
+			
+			<div   slot = "narrativeslot" style = "position:absolute;top:40px;left:180px;">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 			</div>
 		</fx-cardnarrative> 
-		 
 	</div>
 	
 	<div class="mission">
 		<fx-cardnarrative>
 			<div slot = "imageslot">
-				<img src = "tails.jpeg" style = "height:100px;width:150px;margin: 0%;" />
-				<span style = "position:absolute; top:5px;left:180px;font-size:18px;color:white;">BAO Mission Statement</span>
+				<img src = "tails.jpeg" style = "height:100px;margin: 0%;" />
+			</div>
+				
+			<div   slot = "narrativetitle" style = "position:absolute;top:10px;left:180px;font-size:18px;">
+				<span>BAO Mission Statement</span>
+			</div>
+			
+			<div   slot = "narrativeslot" style = "position:absolute;top:40px;left:180px;">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
 			</div>
 		</fx-cardnarrative>
 	</div>
@@ -673,26 +684,35 @@ startTime()
 			<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 					<div class="item active">
-						<img src="pottery.jpeg" alt="pottery" style="width:100%;">
+						<div style = "position:relative;width:324px;height:217px;background-color:var(--fedexpurple);color:white;font-family:roboto;font-size:30px;text-align:center;margin-left:0px;margin-right:5px;padding-top:10px;">What's New ?<img src = "truck.png" style= "width:180px;height:130px;" />
+						</div>
 					</div>
 	
 					<div class="item">
-						<img src="corp.jpg" alt="corp" style="width:100%;">
+						<img src="happy.jpg" alt="happy" style="width:100%;opacity:8;">
+						<div class="carousel-caption" style = "top:120px;color:white;">
+							<h3 style = "background-color:var(--fedexpurple);opacity:.7;">A New Web Site</h3>
+							 
+						</div>
 					</div>
     
 					<div class="item">
-						<img src="tails.jpeg" alt="tails" style="width:100%;">
+						<img src="pizza.jpeg" alt="tails" style="width:100%;opacity:1;">
+						<div class="carousel-caption" style = "top:120px;color:white;">
+							<h3 style = "background-color:var(--fedexpurple);opacity:.7;">BAO & SAFe</h3>
+							 
+						</div>
 					</div>
 				</div>
 
 			<!-- Left and right controls -->
 				<a class="left carousel-control" href="#myCarousel" data-slide="prev">
 					<span class="glyphicon glyphicon-chevron-left" style = "color:var(--fedexpurple);left:-20px;"></span>
-					<span class="sr-only" style = "color:black;">Previous</span>
+					
 				</a>
 				<a class="right carousel-control"  href="#myCarousel" data-slide="next">
 					<span class="glyphicon glyphicon-chevron-right" style = "color:var(--fedexpurple);right:-20px;"></span>
-					<span class="sr-only">Next</span>
+					 
 				</a>
 			</div>
 		</div> 
@@ -700,80 +720,236 @@ startTime()
 
 <!--row 5-->
 	<div class="standards">
-		<fx-markup  style="font-weight:bold;"  family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;" ><span
-        class = "purple" style ="text-decoration:underline;cursor:pointer;font-size:14px;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">Standards</span></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "corpcropped.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Standards & Process</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div>
 
 	<div class="ceremony">
-		<fx-markup  style="font-weight:bold;"  family = "roboto">
-			<div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Ceremony</span><br /><span class = "largefont">xxx</span><img src = "search.PNG" style = "padding-left:15px;height:25px"/></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "boxcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>User Guides</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative> 
 	</div>
 
 	<div class="templates">
-		<fx-markup   family = "roboto">
-			<div slot = "element-name" style = "text-align:center;">
-			<span class = "mediumfont" style = "font-weight:bold;text-align:center;">Templates</span><br /><span class = "largefont">xxxx/</span><span class = "largefont fedexsilver">xxx</span>  
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "potterycrop.jpg" style = "width:100%;;margin: 0%;" />
 			</div>
-		</fx-markup>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Templates</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative> 
 	</div> 
 
 	<div class="tools">
-		<fx-markup  style="font-weight:bold;" family = "roboto"><div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Tools</span><br /><span class = "largefont">xxxx</span><img src = "search.PNG" style = "padding-left:15px;height:25px;"/></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "packagecrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>BAO Tools</span>
+			</div>
+			
+			<div style = "text-align: left;" class = "narrativeslot" slot = "narrativeslot">
+				<ul>
+				<li>Lorem Ipsum</li>
+
+				<li>Ametconsectetur</li>
+
+				<li>Adipiscing Elit</li>
+				
+				<li>Eiusmod Tempor</li>
+
+				<li>Incididunt</li>
+				
+				<li>Lorem Ipsum</li>
+
+				<li>Sit Ametconsectetur</li>
+
+				<li>Adipiscing Elit</li>
+				
+				<li>Eiusmod Tempor</li>
+
+				<li>Incididunt</li>
+				
+				<li>Sed Do</li>
+
+				<li>Incididunt</li>
+				
+				<li>Dolor</li>
+
+				<li>Sit Ametconsectetur</li>
+				
+				</ul>
+
+				<a href = "" style = "color:blue;float:right;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div>
 	
 <!--row 6-->
 
 	<div class="best">
-		<fx-markup  style="font-weight:bold;"  family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;" ><span
-        class = "purple" style ="text-decoration:underline;cursor:pointer;font-size:14px;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">Best</span></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "delivercrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Best Practices</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div>
 
 	<div class="improve">
-		<fx-markup  style="font-weight:bold;"  family = "roboto">
-			<div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Improve</span><br /><span class = "largefont">xxx</span><img src = "search.PNG" style = "padding-left:15px;height:25px"/></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "clothcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Continuous Improvement</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div>
 
 	<div class="learn">
-		<fx-markup   family = "roboto">
-			<div slot = "element-name" style = "text-align:center;">
-			<span class = "mediumfont" style = "font-weight:bold;text-align:center;">Learn</span><br /><span class = "largefont">xxxx/</span><span class = "largefont fedexsilver">xxx</span>  
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "learncrop.jpg" style = "height:110px;width:100%;margin: 0%;" />
 			</div>
-		</fx-markup>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Learning Plans</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div> 
 	
 <!--row 7-->
 
 	<div class="structure">
-		<fx-markup  style="font-weight:bold;"  family = "roboto"><div  slot = "element-name" style = "text-align:center;font-family:roboto;" ><span
-        class = "purple" style ="text-decoration:underline;cursor:pointer;font-size:14px;" onclick="nnn = document.getElementById('myinspection');nnn.style.display = 'block';">Structure</span></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "packcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Structure & Contacts</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div>
 
 	<div class="metrics">
-		<fx-markup  style="font-weight:bold;"  family = "roboto">
-			<div slot = "element-name" style = "text-align:center;"><span class = "mediumfont">Metrics</span><br /><span class = "largefont">xxx</span><img src = "search.PNG" style = "padding-left:15px;height:25px"/></div>
-		</fx-markup>
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "calculatecrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Metrics</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span> 
+			</div>
+		</fx-cardnarrative>
 	</div>
 
 	<div class="faq">
-		<fx-markup   family = "roboto">
-			<div slot = "element-name" style = "text-align:center;">
-			<span class = "mediumfont" style = "font-weight:bold;text-align:center;">FAQ</span><br /><span class = "largefont">xxxx/</span><span class = "largefont fedexsilver">xxx</span>  
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "deliverycrop.jpg" style = "width:100%;;margin: 0%;" />
 			</div>
-		</fx-markup>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>FAQ</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 	</div> 
 	
-			<div class="links">
-				<fx-markup   family = "roboto">
-					<div slot = "element-name" style = "text-align:center;">
-						<span class = "mediumfont" style = "font-weight:bold;text-align:center;">Links</span><br /><span class = "largefont">xxxx/</span><span class = "largefont fedexsilver">xxx</span>  
-					</div>
-				</fx-markup>
+			<div class="links" style = "height: 92%">
+				<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "merchantcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Useful Links</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<ul style = "text-align:left;">
+				<a href = ""><li>Lorem ipsum dolor</li></a>
+
+				<a href = ""><li>Sit ametconsectetur</li></a>
+
+				<a href = ""><li>Adipiscing elit</li></a>
+				
+				<a href = ""><li>Sed do eiusmod tempor</li></a>
+
+				<a href = ""><li>Incididunt</li></a>
+				
+				<a href = ""><li>Lorem ipsum dolor</li></a>
+
+				<a href = ""><li>Sit ametconsectetur</a>
+
+				<a href = ""><li>Adipiscing elit</a>
+				
+				<a href = ""><li>Sed do eiusmod tempor</a>
+
+				<a href = ""><li>Incididunt</a>
+				</ul>
+
+				<a href = "" style = "color:blue;float:right;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
 			</div> 
 
 		</div><!--wrapper-->
