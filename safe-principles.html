@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale= 1">
+  <title>Business Agility Organization</title>
+  <!--IMPORTANT jQuery must come first before bootstrap-->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/webcomponents-bundle.js"></script>
+<!--jquery-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
+
+<!--needed on this screen only for drag and drop-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--jquery ui-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+
+ <!--jquery datatables-->
+<!--<script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />-->
+
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+  
+
+<!--fedex web components-->   
+<script src="faar-search.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="radar-scales.js"></script>
+<script src="radar-flights.js"></script>
+<script src="radar-flightsxxx.js"></script>
+<script src="radar-jobs.js"></script>
+<script src="date-widget.comp.js"></script>
+<script src="radar-flightspre.js"></script>
+<script src="fx-cardnarrative.js"></script>
+<script src="fx-card.js"></script>
+
+<!--from faar-stationaddworkgroup.html-->
+<script src="faar-headersearch.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="faar-simplelistbox.js"></script>
+<script src="faar-stationtable.js"></script>
+<script src="fx-utilitybutton.js"></script>
+<script src="faar-addworkgroup.js"></script>
+<script src="fx-secondarybutton.js"></script>
+<script src="faar-listbox.js"></script>
+<script src="fx-accordion-item.js"></script>
+ 
+<!--fr stands for fraction unit, a unit of measuremnt to define a fractionof the available container space.
+auto-fit creates columns with as many columns that can fit in the container. 
+Note: yoou need height on wrapper to display schedule people right-->
+
+<style>
+/*global scope custom css*/
+
+	body 				{
+						
+						font-family:roboto;
+						--greenbackground: green;
+						--redbackground: red;
+
+						--iphonemenutext: 16px;
+						--iphonelargetext:20px;
+						--iphonemediumtext :18px;
+						--iphonesmalltext : 16px;
+	 
+						--ipadmenutext: 22px;
+						--ipadlargetext:26px;
+						--padmediumtext : 22px;
+						--padsmalltext : 18px;
+	 
+						/*top menu*/
+						--notebookmenutext: 28px;
+						--desktopmenufont: 20px;
+						 
+	 
+						--fedexitalic: italic;
+	 
+						--fedexpurple: #4D148C;"
+						--fedexdarkgray: rgb(70 70 70);
+						--fedexsilver: silver;
+						}
+	 
+	.wrapper 			{
+						display:grid;
+						grid-gap: 0px;
+						color: #444;
+						width:100%;
+						margin:auto;
+						 
+						}
+						
+	#clock 
+						{
+						font-family: Arial;
+						font-size: 18px;
+						text-align: center;
+						color:white;
+						}					
+
+/*phones iPhone 6/7/8 and Plus and iPhone X  and Galaxy 5 etc.*/
+@media screen and (min-width: 320px) and  (max-width: 500px) 
+						{
+
+	radar-scales::part(banner) {background-color: var(--fedexpurple);color:white;}
+
+	.wrapper 			{
+						
+						grid-template-rows:  80px 50px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px;
+						background-color:white;
+						}
+	
+	.header 			{
+						font-weight:bold; 
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 32px; 
+						font-family: "roboto";
+						line-height: .5em;
+						width:100%
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--iphonemenutext);
+						padding-left: 0px; 
+						}
+	
+	#presort			{
+						 padding-right:15px;padding-left:0px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:20px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:20px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						 
+						color:var(--fedexsilver);
+						}
+
+	.largefont 			{
+						font-size: var(--phonebigtext);
+						color: var(--fedexpurple);
+						}
+	 
+	.mediumfont 		{
+						font-size: var(--phonemediumtext);
+						}
+	 
+	.smallfont 			{
+						font-size: var(--phonesmalltext);
+						}
+	
+	.italic 			{
+						font-style: var(--fedexitalic);
+						}
+	
+	.purple 			{
+						color: var(--fedexpurple);
+						}
+	
+	.silver 			{
+						color: var(--fedexsilver);
+						}
+	 
+	body 				{
+						background-color:white;
+						}
+
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:350px;  
+						}	
+  
+}
+
+/*portrait tablest and large phones*/
+@media screen and (min-width: 600px)
+	{
+
+	.wrapper 				{
+						grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+						grid-template-rows:  80px 50px 10px 10px 10px 80px 80px 80px 80px 80px 80px 150px; 
+						/*background-color: tan;*/ 
+						}
+  
+	.header {
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--padmediumtext);
+						}
+	
+	#presort			{
+						padding-left:30px;padding-right:30px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						padding-right:30px;
+						color:var(--fedexsilver);
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:450px;  
+						}
+	}/*media query*/
+
+/*landscape tablets iPad*/
+@media screen and (min-width: 768px) 
+	{
+  
+  .wrapper 				{
+						grid-template-columns: repeat(auto-fill, lfr, 1fr);
+						grid-template-rows:  80px 50px 10px 10px 10px 90px 90px 90px 90px 90px 90px 150px; 
+						/*background-color: yellow;*/  
+						}
+  
+  .header 				{
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						}
+	
+	fx-dropdownmenu  	{
+						font-size: var(--ipadmenutext);
+						}
+	
+	#presort			{
+						padding-left:100px;padding-right:48px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:48px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:48px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						color:var(--fedexsilver);
+						}
+						
+	.mediumfont			{
+						font-size: 24px;
+						}
+						
+	.largefont			{
+						font-size: 32px;
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:600px;
+						font-size: 24px;
+						}
+	}/*media query*/
+
+/*laptop and desktop and iPad Pro*/
+/*min width for column is 496px to make sure columns dont get too narrow. 1fr tells browser
+  to distribued the space between the column so that each column is equal to fill the space*/
+  /*auto-fit the content stretches to fill the entire row..auto-fill allows empty columns*/
+  
+@media screen and (min-width: 992px) 
+	{
+  
+  .wrapper 				{
+						grid-template-columns: repeat(auto-fit, minmax(496px, 1fr)); 
+						grid-template-rows:  80px 50px 10px 10px 10px 100px 100px 100px 100px 100px 100px 150px; 
+						/*background-color: teal;*/  
+						}
+  
+  .header 				{
+						font-weight:bold; 
+						line-height: .5em;
+						background-color : #4D148C; 
+						color :  white ; 
+						font-size : 40px; 
+						font-family: "roboto";
+						width:100%;
+						}
+						
+	 
+	
+	fx-dropdownmenu  	{
+						font-size: 28px;
+						}
+	
+	#presort			{
+						padding-left:150px;padding-right:69px;color:var(--fedexpurple);
+						}
+
+	#sort				{
+						padding-right:60px;
+						color:var(--fedexsilver);
+						} 
+
+	#live				{
+						padding-right:60px;
+						color:var(--fedexsilver);
+						}
+
+	#notes				{
+						color:var(--fedexsilver);
+						}
+						
+	.mediumfont			{
+						font-size: 24px;
+						}
+						
+	.largefont			{
+						font-size: 32px;
+						}
+				
+						/*0 is top and bottom, auto is left and rigth to fill the container equally*/				
+	.outboundflights	{
+						margin: 0 auto;
+						width:700px;
+						font-size:24px;
+						}
+	} /*media query*/
+
+
+/*1200px (DESKTOP)*/
+/*flexible width (1fr) but with a minimum 600px width for the columns*/
+
+@media screen and (min-width: 1200px) 
+	{
+	
+	.wrapper 			{
+						gap:30px;
+						max-width: 1200px;
+						grid-template-columns: repeat(8,1fr);  
+						grid-template-rows:  105px 45px auto;
+						margin-bottom:200px;
+						/*background-color: orange;*/ 
+						}
+  
+    .header 	        {
+						grid-column:1/span 8 ;
+						grid-row:1;
+						font-weight:bold; 
+						line-height:  .8em;
+						background-color : --var(fedexpurple); 
+						color :  white ; 
+						font-size : 56px; 
+						font-family: "roboto";
+						width:100%;
+						}
+	
+	#mainmenu		  	{
+						grid-column:1/span 8;
+						grid-row: 2;
+						}
+						
+	fx-dropdownmenu		{
+						font-size: var(--desktopmenufont);
+						}
+
+	.narrativetitle		{
+						font-size:18px;
+						font-weight:bold;
+						text-align:center;
+						color:var(--fedexdarkgray);
+						margin-top:10px;
+						}
+	
+	.narrativeslot		{	
+						position:absolute;
+						top:160px;
+						text-align:center;
+						font-size:16px;
+						margin-left:10px;
+						margin-right:10px;
+						}
+	
+	/*menu items*/
+	#home				{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+
+	#about				{
+						
+						color:var(--fedexpurple);
+						padding-right:60px;
+						} 
+
+	#principles			{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+
+	#levels				{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+						
+	#roles				{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+						
+	#general			{
+						color:var(--fedexsilver);
+						}
+						
+	/*content*/					
+	
+	.submenu 			{
+						grid-column : 1/span 2;
+						grid-row : 3 ;
+						background-color:  white;
+						color: white;
+						padding-right:10px;
+						box-shadow: 3px 3px 3px 3px #d9d9d9; 
+						}
+	
+	.content 			
+						{
+						grid-column: 3/span 6;
+						grid-row : 3;
+						background-color: white;
+						color:white;
+						padding-right:10px;
+						box-shadow: 3px 3px 3px 3px #d9d9d9; 
+						/*border:thin silver solid;*/
+						}
+						
+	ul li				{padding-bottom:20px;}
+	
+	ol li				{padding-bottom:20px;}
+	
+	 
+						
+/*fonts*/
+	
+	.mediumfont			{
+						font-size: 28px;
+						}
+						
+	.largefont			{
+						font-size: 36px;
+						}
+				
+						 
+	} /*media query*/
+
+
+</style>
+
+<!--display window/viewport dimensions-->
+<script>
+function myFunction() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  alert( "Width: " + w + "<br>Height: " + h);
+}
+</script>
+
+</head>
+
+	<body>
+		<p id="demo"></p>
+ 
+		<div class = "wrapper" >
+			<!--<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget>--> 
+			<button onclick="myFunction()" style = "position:absolute;top:0px;left:0px;">Try it</button> 
+		
+		<!--note that the height of the background for header is in the grid row definition--> 
+			<fx-markup class = "header" height= "80">
+				<div slot = "element-name" style = "margin-left:100px;text-align:left;padding-top:30px;font-family:roboto;position:relative">BAO<span style = "font-size:24px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAO Process and Standards</span><input type="search" id="site-search" name="q" style = "float:right;margin-right:75px;height:45px;width:400px;margin-bottom:30px;"
+				aria-label="Search through site content" /><img src = "search.PNG" style = "position:absolute;top:35px;right:80px;height:35px"/>
+				</div>
+			</fx-markup >
+			
+			<!-- menu items are defined under each breakpoint in styles for padding and color--> 
+			<div id = "mainmenu" style = "margin: 0 auto;">
+			<fx-dropdownmenu height = 60 orientation = left c = white  >
+				<a id = "home" slot = "drop-text1" style = " text-decoration:none; " href = "home.html">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a> 
+				
+				<a id = "about" slot = "drop-text2" style = " text-decoration:none;" href = "about.html">About SAFe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </a>
+				
+				<a id = "principles" slot = "drop-text3" style = " text-decoration:none;" href = "principles.html">Principles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+				
+				<a id = "levels" slot = "drop-text4" style = " text-decoration:none;" href = "notes.html">Levels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+				
+				<a id = "roles" slot = "drop-text5" style = " text-decoration:none;" href = "notes.html">Roles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+				
+				<a id = "general" slot = "drop-text6" style = " text-decoration:none;" href = "notes.html">General Communications</a>
+				
+				link1 = "home.html"
+				link2 = "about.html"
+				link3 = "principles.html"
+				link4 = "levels.html"
+				link5 = "roles.html"
+				link6 = "general.html" 
+			</fx-dropdownmenu>
+			</div>
+			
+			<div class = "submenu">
+				<h3 style = "color:var(--fedexpurple);margin-bottom:50px;text-align:center;">Document Libraries</h3>
+				<ul style = "text-align:left;font-family:roboto;font-size:18px;list-style-type:none;">
+					<a href = ""><li>Stadards and Processes</li></a>
+
+					<a href = ""><li>Ceremony Guidelines and User Guides</li></a>
+
+					<a href = ""><li>Templates</li></a>
+				
+					<a href = ""><li>Best Practices</li></a>
+
+					<a href = ""><li>Learning Plans</li></a>
+				
+					<a href = ""><li>Structure/Contacts</li></a>
+
+					<a href = ""><li>Metrics</li></a>
+
+					<a href = ""><li>FAQ</li></a>
+				</ul>
+			</div>
+			
+			<div class = "content" style = "color:black;">
+				<h4 style = "margin-bottom:40px;margin-top:25px;margin-left:20px;text-align:left;font-weight:bold;">SAFe is based on ten Lean-Agile Principles</h4>
+				
+				 <ol style = "margin-left:20px;margin-right:20px;padding-bottom:20px;color:black;font-face:roboto;font-size:18px;">
+				
+					<li>Take an Economic View</li>
+
+					<li>Apply systems thinking</li>
+
+					<li>Assume variability: preserve options</li>
+				
+					<li>Build incrementally with fast, integrated learning cycles</li>
+					
+					<li>Base milestones on objective evaluation of working systems</li>
+
+					<li>Visualize and limit WIP, reduce batchb sizes,and manage que length</li>
+
+					<li>Apply cadence, synchronize with cross-domain planning</li>
+				
+					<li>Unlock the intrinsic motivation of knowledge workers</li>
+					
+					<li>Decentralize decision making</li>
+				
+					<li>Organize around value</li>
+				</ol>
+			
+			</div><!--wrapper-->
+	</body>	
+</html>			
