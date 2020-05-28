@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale= 1">
+  <title>Business Agility Organization</title>
+  <!--IMPORTANT jQuery must come first before bootstrap-->
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.4.3/webcomponents-bundle.js"></script>
+<!--jquery-->
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>-->
+
+<!--needed on this screen only for drag and drop-->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!--jquery ui-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+
+ <!--jquery datatables-->
+<!--<script src="http://cdn.datatables.net/1.10.3/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.3/css/jquery.dataTables.css" />-->
+
+<!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!--fedex web components-->   
+<script src="faar-search.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="fx-listbox.js"></script>
+<script src="fx-markup.js"></script>
+<script src="radar-scales.js"></script>
+<script src="radar-flights.js"></script>
+<script src="radar-flightsxxx.js"></script>
+<script src="radar-jobs.js"></script>
+<script src="date-widget.comp.js"></script>
+<script src="radar-flightspre.js"></script>
+<script src="fx-cardnarrative.js"></script>
+<script src="fx-card.js"></script>
+
+<!--from faar-stationaddworkgroup.html-->
+<script src="faar-headersearch.js"></script>
+<script src="fx-dropdownmenu.js"></script>
+<script src="faar-simplelistbox.js"></script>
+<script src="faar-stationtable.js"></script>
+<script src="fx-utilitybutton.js"></script>
+<script src="faar-addworkgroup.js"></script>
+<script src="fx-secondarybutton.js"></script>
+<script src="faar-listbox.js"></script>
+<script src="fx-accordion-item.js"></script>
+ 
+<style>
+/*global scope custom css*/
+
+body {
+	font-family:roboto;
+	font-size: 1vw;
+	--desktopmenufont: 20px;
+	--fedexitalic:italic;
+	--fedexpurple:#4D148C; 
+	-fedexdarkgray: rgb(70 70 70);
+	--fedexsilver: silver;
+}
+	 
+main {
+display:grid;
+grid-gap: 30px;
+color: #444;
+margin:0 auto;
+}
+
+/*1200px (DESKTOP)*/
+/*fractional width (1fr) but with a minimum 600px width for the columns*/
+
+@media screen and (min-width: 1200px) 
+	{
+	
+main {
+max-width: 1200px;
+grid-template-columns: repeat(8,1fr);  
+grid-template-rows: repeat(10, auto);
+margin-bottom:200px;
+}
+  
+header {
+	grid-column:1/span 8 ;
+	grid-row:1;
+	font-weight:bold; 
+	line-height:  .8em;
+	background-color:var(--fedexpurple); 
+	color :  white ; 
+	font-size : 4.2vw; 
+	font-family: "roboto";
+}
+	
+nav	{
+	grid-column:1/span 8;
+	grid-row: 2;
+}
+						
+fx-dropdownmenu	{
+	font-size: var(--desktopmenufont);
+}
+
+	.narrativetitle		{
+						font-size:18px;
+						font-weight:bold;
+						text-align:center;
+						color:var(--fedexdarkgray);
+						margin-top:10px;
+						}
+	
+	.narrativeslot		{	
+						margin-top:20px;
+						top:160px;
+						text-align:center;
+						font-size:16px;
+						margin-left:10px;
+						margin-right:10px;
+						}
+	
+	/*menu items*/
+	#home				{
+						color:var(--fedexpurple);
+						padding-right:60px;
+						}
+
+	#about				{
+						
+						color:var(--fedexsilver);
+						padding-right:60px;
+						} 
+
+	#principles			{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+
+	#levels				{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+						
+	#roles				{
+						color:var(--fedexsilver);
+						padding-right:60px;
+						}
+						
+	#general			{
+						color:var(--fedexsilver);
+						}
+						
+	/*content*/					
+	
+	.vision 			{
+						grid-column : 1/span 5;
+						grid-row : 3 ;
+						background-color:  var(--fedexpurple);
+						color: white;
+						padding-right:10px;
+						/*box-shadow: 3px 3px 3px 3px #d9d9d9;*/ 
+						}
+	
+	.mission 			
+						{
+						grid-column: 1/span 5;
+						grid-row : 4;
+						background-color:  var(--fedexpurple);
+						color:white;
+						padding-right:10px;
+						/*box-shadow: 3px 3px 3px 3px #d9d9d9;*/ 
+						/*border:thin silver solid;*/
+						}
+	
+	.new 
+						{
+						grid-column : 6/span 3;
+						grid-row : 3/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9;
+						border:thin silver solid;*/ 
+						}
+	
+	.standards			{
+						grid-column: 1/span 2;
+						grid-row : 5/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						   
+						}
+	
+	.ceremony 			{
+						grid-column : 3/span 2;
+						grid-row : 5/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/						 
+						}
+	
+	.templates 
+						{
+						grid-column: 5 /span 2;
+						grid-row : 5/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						  
+						}
+						
+	.tools 
+						{
+						grid-column : 7 /span 2;
+						grid-row : 5/ span 3;
+						box-shadow: 3px 3px 5px 3px #d9d9d9;
+						}
+						
+	.links 
+						{
+						grid-column : 7 / span 2;
+						grid-row : 8/ span 3;
+						box-shadow: 3px 3px 5px 3px #d9d9d9;
+						text-align: left;
+						 
+						}
+						
+	.best 
+						{
+						grid-column : 1 / span 2; ;
+						grid-row : 7/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+	.improve 			
+						{
+						grid-column : 3 / span 2;
+						grid-row : 7/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+	
+	.learn
+						{
+						grid-column: 5 / span 2;
+						grid-row : 7/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+	
+	.structure 
+						{
+						grid-column : 1 /span 2;
+						grid-row : 9/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+	
+	.metrics 
+						{
+						grid-column: 3 /span 2;
+						grid-row : 9/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+
+	.faq 
+						{
+						grid-column: 5 /span 2;
+						grid-row : 9/span 2;
+						/*box-shadow: 3px 3px 5px 3px #d9d9d9*/
+						 
+						}
+						
+/*fonts*/
+	
+	.mediumfont			{
+						font-size: 28px;
+						}
+						
+	.largefont			{
+						font-size: 36px;
+						}
+				
+						 
+	} /*media query*/
+
+
+</style>
+
+<!--display window/viewport dimensions-->
+<script>
+function myFunction() {
+  var w = window.innerWidth;
+  var h = window.innerHeight;
+  alert( "Width: " + w + "<br>Height: " + h);
+}
+</script>
+
+</head>
+
+<body>
+	<p id="demo"></p>
+ 
+<main>
+	<!--<date-widget style = "position:absolute;top:0px;right:0px;"></date-widget>--> 
+	<button onclick="myFunction()" style = "position:absolute;top:0px;left:0px;">Try it</button> 
+		
+<header>
+	<fx-markup>
+	<div slot = "element-name" style = "margin-left:100px;text-align:left;padding-top:30px;font-family:roboto;position:relative">BAO<span style = "font-size:1.6vw;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAO Process and Standards</span><input type="search" id="site-search" name="q" style = "float:right;margin-right:75px;height:45px;width:400px;margin-bottom:30px;"
+	aria-label="Search through site content" /><img src = "search.PNG" style = "position:absolute;top:35px;right:80px;height:35px"/>
+	</div>
+	</fx-markup >
+</header>
+			
+<nav>			 
+	<div   style = "margin: 0 auto;">
+	<fx-dropdownmenu height = 50 orientation = left c = white  >
+	<a id = "home" slot = "drop-text1" style = " text-decoration:none; " href = "home.html">Home&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a> 
+	<a id = "about" slot = "drop-text2" style = " text-decoration:none;" href = "about.html">About SAFe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| </a>
+	<a id = "principles" slot = "drop-text3" style = " text-decoration:none;" href = "principles.html">Principles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+	<a id = "levels" slot = "drop-text4" style = " text-decoration:none;" href = "notes.html">Levels&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+	<a id = "roles" slot = "drop-text5" style = " text-decoration:none;" href = "notes.html">Roles&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|</a>
+	<a id = "general" slot = "drop-text6" style = " text-decoration:none;" href = "notes.html">General Communications</a>
+	link1 = "home.html"
+	link2 = "about.html"
+	link3 = "principles.html"
+	link4 = "levels.html"
+	link5 = "roles.html"
+	link6 = "general.html" 
+	</fx-dropdownmenu>
+	</div>
+</nav>
+			
+<section class = "vision">
+	<fx-cardnarrative>
+	<div slot = "imageslot">
+	<img src = "blondewoman.jpg" style = "height:100px;margin: 0%;" />
+	</div>
+	<div   slot = "narrativetitle" style = "position:absolute;top:10px;left:180px;font-size:18px;">
+	<span>BAO Vision Statement</span>
+	</div>
+	<div   slot = "narrativeslot" style = "position:absolute;top:40px;left:180px;">
+	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+	</div>
+	</fx-cardnarrative> 
+</section>
+	
+<section class="mission">
+	<fx-cardnarrative>
+	<div slot = "imageslot">
+	<img src = "tails.jpeg" style = "height:100px;margin: 0%;" />
+	</div>
+	<div   slot = "narrativetitle" style = "position:absolute;top:10px;left:180px;font-size:18px;">
+	<span>BAO Mission Statement</span>
+	</div>
+	<div   slot = "narrativeslot" style = "position:absolute;top:40px;left:180px;">
+	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+	</div>
+	</fx-cardnarrative>
+</section>
+
+<section class="new">
+	<div class = "container" style = "width:355px;background-color:white;margin-left:50px;"> 
+	<div id="myCarousel" class="carousel slide" >  <!--data-ride="carousel"-->
+	<!-- Indicators -->
+	<ol class="carousel-indicators" style = "bottom:0px;margin-bottom:0px;">
+	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	<li data-target="#myCarousel" data-slide-to="1"></li>
+	<li data-target="#myCarousel" data-slide-to="2"></li>
+	</ol>
+	<!-- Wrapper for slides -->
+	<div class="carousel-inner">
+	<div class="item active">
+	<div style = "position:relative;width:324px;height:217px;background-color:var(--fedexpurple);color:white;font-family:roboto;font-size:30px;text-align:center;margin-left:0px;margin-right:5px;padding-top:10px;">What's New ?<img src = "truck.png" style= "width:180px;height:130px;" />
+	</div>
+	</div>
+	<div class="item">
+	<img src="happy.jpg" alt="happy" style="width:100%;opacity:8;">
+	<div class="carousel-caption" style = "top:120px;color:white;">
+	<h3 style = "background-color:var(--fedexpurple);opacity:.7;">A New Web Site</h3>
+	</div>
+	</div>
+    <div class="item">
+	<img src="pizza.jpeg" alt="tails" style="width:100%;opacity:1;">
+	<div class="carousel-caption" style = "top:120px;color:white;">
+	<h3 style = "background-color:var(--fedexpurple);opacity:.7;">BAO & SAFe</h3>
+	</div>
+	</div>
+	</div>
+	<!-- Left and right controls -->
+	<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+	<span class="glyphicon glyphicon-chevron-left" style = "color:var(--fedexpurple);left:-20px;"></span>
+	</a>
+	<a class="right carousel-control"  href="#myCarousel" data-slide="next">
+	<span class="glyphicon glyphicon-chevron-right" style = "color:var(--fedexpurple);right:-20px;"></span>
+	</a>
+	</div>
+	</div> 
+</section>
+
+<!--row 5-->
+<section class="standards">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "corpcropped.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Standards & Process</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section>
+
+<section class="ceremony">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "boxcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>User Guides</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative> 
+</section>
+
+<section class="templates">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "potterycrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Templates</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative> 
+</section> 
+
+<section class="tools">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "packagecrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>BAO Tools</span>
+			</div>
+			
+			<div style = "text-align: left;" class = "narrativeslot" slot = "narrativeslot">
+				<ul>
+				<li>Lorem Ipsum</li>
+
+				<li>Ametconsectetur</li>
+
+				<li>Adipiscing Elit</li>
+				
+				<li>Eiusmod Tempor</li>
+
+				<li>Incididunt</li>
+				
+				<li>Lorem Ipsum</li>
+
+				<li>Sit Ametconsectetur</li>
+
+				<li>Adipiscing Elit</li>
+				
+				<li>Eiusmod Tempor</li>
+
+				<li>Incididunt</li>
+				
+				<li>Sed Do</li>
+
+				<li>Incididunt</li>
+				
+				<li>Dolor</li>
+
+				</ul>
+
+				<a href = "" style = "color:blue;float:right;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section>
+	
+<!--row 6-->
+
+<section class="best">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "delivercrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Best Practices</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section>
+
+
+<section class="improve">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "clothcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Continuous Improvement</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section>
+
+<section class="learn">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "learncrop.jpg" style = "height:110px;width:100%;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Learning Plans</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section> 
+	
+<!--row 7-->
+
+<section class="structure">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "packcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Structure & Contacts</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section>
+
+<section class="metrics">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "calculatecrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Metrics</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span> 
+			</div>
+		</fx-cardnarrative>
+</section>
+
+<section class="faq">
+		<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "deliverycrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>FAQ</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Xcepteur sint occaecat cupidatat non proident sunt in culpa. <a href = "" style = "color:blue;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section> 
+	
+<section class="links" style = "height: 92%">
+				<fx-cardnarrative>
+			<div slot = "imageslot">
+				<img src = "merchantcrop.jpg" style = "width:100%;;margin: 0%;" />
+			</div>
+			
+			<div class = "narrativetitle" slot = "narrativetitle">
+				<span>Useful Links</span>
+			</div>
+			
+			<div class = "narrativeslot" slot = "narrativeslot">
+				<ul style = "text-align:left;">
+				<a href = ""><li>Lorem ipsum dolor</li></a>
+
+				<a href = ""><li>Sit ametconsectetur</li></a>
+
+				<a href = ""><li>Adipiscing elit</li></a>
+				
+				<a href = ""><li>Sed do eiusmod tempor</li></a>
+
+				<a href = ""><li>Incididunt</li></a>
+				
+				<a href = ""><li>Lorem ipsum dolor</li></a>
+
+				<a href = ""><li>Sit ametconsectetur</a>
+
+				<a href = ""><li>Adipiscing elit</a>
+				
+				<a href = ""><li>Sed do eiusmod tempor</a>
+
+				<a href = ""><li>Incididunt</a>
+				</ul>
+
+				<a href = "" style = "color:blue;float:right;">...more</a></span>
+			</div>
+		</fx-cardnarrative>
+</section> 
+</main> 
+</body>	
+</html>			
